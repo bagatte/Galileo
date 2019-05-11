@@ -22,9 +22,9 @@ struct StaticPrecriptionDataProvider: PrecriptionDataProvider {
     
     // MARK: - Public functions
     
-    func lipitorAndAmoxilPrescriptionRequest(_ completion: ((Result<PrescriptionRequest>) -> Void)) {
+    func lipitorAndAmoxilPrescriptionRequest(_ completion: ((Result<PrescriptionInformation>) -> Void)) {
         let fileResult = fileReadable.contentsOfFile("prescription_request", fileType: .json)
-        let prescriptionRequestResult: Result<PrescriptionRequest> = JSONDecoder().decode(result: fileResult)
+        let prescriptionRequestResult: Result<PrescriptionInformation> = JSONDecoder().decode(result: fileResult)
         completion(prescriptionRequestResult)
     }
 }

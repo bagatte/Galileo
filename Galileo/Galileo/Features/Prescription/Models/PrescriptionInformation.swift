@@ -1,5 +1,5 @@
 //
-//  PrescriptionRequest.swift
+//  PrescriptionInformation.swift
 //  Galileo
 //
 //  Created by bagatte on 5/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct PrescriptionRequest: Decodable {
+struct PrescriptionInformation: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case medications
@@ -41,9 +41,9 @@ struct PrescriptionRequest: Decodable {
         batchForm.type = .batch
         
         self.medications = medications
-        self.forms = [genericForm] + [batchForm] + PrescriptionRequest.medicationSpecificForms(from: container, medications: medications)
+        self.forms = [genericForm] + [batchForm] + PrescriptionInformation.medicationSpecificForms(from: container, medications: medications)
         
-        PrescriptionRequest.medicationId = ""
+        PrescriptionInformation.medicationId = ""
     }
     
     // MARK: - Private methods
@@ -51,7 +51,7 @@ struct PrescriptionRequest: Decodable {
     private static func medicationSpecificForms(from container: KeyedDecodingContainer<CodingKeys>, medications: [Medication]) -> [Form] {
         var medicationSpecificForms: [Form] = []
         for medication in medications {
-            PrescriptionRequest.medicationId = String(medication.id)
+            PrescriptionInformation.medicationId = String(medication.id)
             
             if let medicationSpecificFormResponse = try? container.decode(MedicationSpecificFormResponse.self, forKey: .medicationSpecificForm) {
                 medicationSpecificForms.append(medicationSpecificFormResponse.form)
@@ -61,7 +61,7 @@ struct PrescriptionRequest: Decodable {
     }
 }
 
-extension PrescriptionRequest {
+extension PrescriptionInformation {
     
     /*
      This structure is necessery because the JSON response returns a dynamic key based on the medication id.
@@ -91,7 +91,7 @@ extension PrescriptionRequest {
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: JSONCodingKeys.self)
-            form = try container.decode(Form.self, forKey: JSONCodingKeys(stringValue: PrescriptionRequest.medicationId)!)
+            form = try container.decode(Form.self, forKey: JSONCodingKeys(stringValue: PrescriptionInformation.medicationId)!)
             form.type = .medicationSpecific
         }
     }

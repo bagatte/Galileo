@@ -10,5 +10,5 @@ import UIKit
 
 protocol PrecriptionDataProvider {
 
-    func lipitorAndAmoxilPrescriptionRequest(_ completion: ((Result<PrescriptionRequest>) -> Void))
+    func lipitorAndAmoxilPrescriptionRequest(_ completion: ((Result<PrescriptionInformation>) -> Void))
 }

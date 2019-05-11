@@ -40,8 +40,8 @@
 		0FFFCBA92286F0EB00E8564E /* MultipleSelectionQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBA72286F0EB00E8564E /* MultipleSelectionQuestion.swift */; };
 		0FFFCBAB2286F19800E8564E /* AnswerChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAA2286F19800E8564E /* AnswerChoice.swift */; };
 		0FFFCBAC2286F19800E8564E /* AnswerChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAA2286F19800E8564E /* AnswerChoice.swift */; };
-		0FFFCBAE2286F26C00E8564E /* PrescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionRequest.swift */; };
-		0FFFCBAF2286F26C00E8564E /* PrescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionRequest.swift */; };
+		0FFFCBAE2286F26C00E8564E /* PrescriptionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */; };
+		0FFFCBAF2286F26C00E8564E /* PrescriptionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */; };
 		0FFFCBB12286F29800E8564E /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* Form.swift */; };
 		0FFFCBB22286F29800E8564E /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* Form.swift */; };
 		0FFFCBB52286F36600E8564E /* PrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */; };
@@ -87,7 +87,7 @@
 		0FFFCBA42286F07100E8564E /* FreeTextQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTextQuestion.swift; sourceTree = "<group>"; };
 		0FFFCBA72286F0EB00E8564E /* MultipleSelectionQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionQuestion.swift; sourceTree = "<group>"; };
 		0FFFCBAA2286F19800E8564E /* AnswerChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerChoice.swift; sourceTree = "<group>"; };
-		0FFFCBAD2286F26C00E8564E /* PrescriptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRequest.swift; sourceTree = "<group>"; };
+		0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionInformation.swift; sourceTree = "<group>"; };
 		0FFFCBB02286F29800E8564E /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecriptionDataProvider.swift; sourceTree = "<group>"; };
 		0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPrecriptionDataProvider.swift; sourceTree = "<group>"; };
@@ -256,10 +256,10 @@
 		0FFFCB962286EE4500E8564E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0FFFCB9D2286EF4200E8564E /* Question and Answer */,
-				0FFFCB972286EE6A00E8564E /* Medication.swift */,
-				0FFFCBAD2286F26C00E8564E /* PrescriptionRequest.swift */,
 				0FFFCBB02286F29800E8564E /* Form.swift */,
+				0FFFCB972286EE6A00E8564E /* Medication.swift */,
+				0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */,
+				0FFFCB9D2286EF4200E8564E /* Question and Answer */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 				0FFFCB842286EB3D00E8564E /* FileReaderError.swift in Sources */,
 				0FFFCB812286EB1000E8564E /* FileReader.swift in Sources */,
 				0FFFCB7B2286EACD00E8564E /* FileReadable.swift in Sources */,
-				0FFFCBAE2286F26C00E8564E /* PrescriptionRequest.swift in Sources */,
+				0FFFCBAE2286F26C00E8564E /* PrescriptionInformation.swift in Sources */,
 				0FFFCBB52286F36600E8564E /* PrecriptionDataProvider.swift in Sources */,
 				0FFFCBAB2286F19800E8564E /* AnswerChoice.swift in Sources */,
 				0FFFCB9F2286EF5500E8564E /* Question.swift in Sources */,
@@ -438,7 +438,7 @@
 				0FFFCBA02286EF5500E8564E /* Question.swift in Sources */,
 				0FFFCB8F2286EC6000E8564E /* Result.swift in Sources */,
 				0FFFCB7F2286EAF500E8564E /* FileType.swift in Sources */,
-				0FFFCBAF2286F26C00E8564E /* PrescriptionRequest.swift in Sources */,
+				0FFFCBAF2286F26C00E8564E /* PrescriptionInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
