@@ -21,5 +21,5 @@ struct FreeTextQuestion: Question {
     
     let text: String
     
-    var textAnswer: String = ""
+    var textAnswer: String?
 }

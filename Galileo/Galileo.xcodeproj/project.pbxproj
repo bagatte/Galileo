@@ -42,8 +42,8 @@
 		0FFFCBAC2286F19800E8564E /* AnswerChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAA2286F19800E8564E /* AnswerChoice.swift */; };
 		0FFFCBAE2286F26C00E8564E /* PrescriptionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */; };
 		0FFFCBAF2286F26C00E8564E /* PrescriptionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */; };
-		0FFFCBB12286F29800E8564E /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* Form.swift */; };
-		0FFFCBB22286F29800E8564E /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* Form.swift */; };
+		0FFFCBB12286F29800E8564E /* PrescriptionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* PrescriptionForm.swift */; };
+		0FFFCBB22286F29800E8564E /* PrescriptionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB02286F29800E8564E /* PrescriptionForm.swift */; };
 		0FFFCBB52286F36600E8564E /* PrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */; };
 		0FFFCBB62286F36600E8564E /* PrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */; };
 		0FFFCBB82286F3C100E8564E /* StaticPrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */; };
@@ -88,7 +88,7 @@
 		0FFFCBA72286F0EB00E8564E /* MultipleSelectionQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionQuestion.swift; sourceTree = "<group>"; };
 		0FFFCBAA2286F19800E8564E /* AnswerChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerChoice.swift; sourceTree = "<group>"; };
 		0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionInformation.swift; sourceTree = "<group>"; };
-		0FFFCBB02286F29800E8564E /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		0FFFCBB02286F29800E8564E /* PrescriptionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionForm.swift; sourceTree = "<group>"; };
 		0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecriptionDataProvider.swift; sourceTree = "<group>"; };
 		0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPrecriptionDataProvider.swift; sourceTree = "<group>"; };
 		0FFFCBBB2286F53E00E8564E /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		0FFFCB962286EE4500E8564E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0FFFCBB02286F29800E8564E /* Form.swift */,
+				0FFFCBB02286F29800E8564E /* PrescriptionForm.swift */,
 				0FFFCB972286EE6A00E8564E /* Medication.swift */,
 				0FFFCBAD2286F26C00E8564E /* PrescriptionInformation.swift */,
 				0FFFCB9D2286EF4200E8564E /* Question and Answer */,
@@ -404,7 +404,7 @@
 				0FFFCBB52286F36600E8564E /* PrecriptionDataProvider.swift in Sources */,
 				0FFFCBAB2286F19800E8564E /* AnswerChoice.swift in Sources */,
 				0FFFCB9F2286EF5500E8564E /* Question.swift in Sources */,
-				0FFFCBB12286F29800E8564E /* Form.swift in Sources */,
+				0FFFCBB12286F29800E8564E /* PrescriptionForm.swift in Sources */,
 				0FFFCB8E2286EC5F00E8564E /* Result.swift in Sources */,
 				0FFFCBA82286F0EB00E8564E /* MultipleSelectionQuestion.swift in Sources */,
 				0FFFCBA52286F07100E8564E /* FreeTextQuestion.swift in Sources */,
@@ -426,7 +426,7 @@
 				0FFFCBA92286F0EB00E8564E /* MultipleSelectionQuestion.swift in Sources */,
 				0FFFCBA62286F07100E8564E /* FreeTextQuestion.swift in Sources */,
 				0FFFCB822286EB1200E8564E /* FileReader.swift in Sources */,
-				0FFFCBB22286F29800E8564E /* Form.swift in Sources */,
+				0FFFCBB22286F29800E8564E /* PrescriptionForm.swift in Sources */,
 				0FFFCB862286EB7300E8564E /* FileReaderError.swift in Sources */,
 				0FFFCB952286EDB500E8564E /* ResultTests.swift in Sources */,
 				0FFFCB9C2286EED400E8564E /* PrescriptionRequestFormType.swift in Sources */,

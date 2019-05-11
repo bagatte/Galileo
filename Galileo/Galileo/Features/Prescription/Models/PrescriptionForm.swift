@@ -1,5 +1,5 @@
 //
-//  Form.swift
+//  PrescriptionForm.swift
 //  Galileo
 //
 //  Created by bagatte on 5/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Form: Decodable {
+struct PrescriptionForm: Decodable {
 
     private enum CodingKeys: String, CodingKey {
         case questions
@@ -17,6 +17,8 @@ struct Form: Decodable {
     // MARK: - Public properties
     
     var type: PrescriptionRequestFormType = .generic
+    
+    var medication: Medication?
     
     let questions: [Question]
     
@@ -30,7 +32,7 @@ struct Form: Decodable {
             return
         }
         
-        self.questions = Form.decodeQuestions(from: questionsContainer)
+        self.questions = PrescriptionForm.decodeQuestions(from: questionsContainer)
     }
     
     // MARK: - Private methods

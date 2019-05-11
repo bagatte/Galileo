@@ -21,11 +21,11 @@ struct PrescriptionInformation: Decodable {
 
     let medications: [Medication]
     
-    let forms: [Form]
+    let forms: [PrescriptionForm]
     
     // MARK: - Private properties
     
-    private static var medicationId: String = ""
+    private static var medicationId: String?
     
     // MARK: - Initializer
     
@@ -34,27 +34,31 @@ struct PrescriptionInformation: Decodable {
         
         let medications = try container.decode([Medication].self, forKey: .medications)
         
-        var genericForm = try container.decode(Form.self, forKey: .genericForm)
+        var genericForm = try container.decode(PrescriptionForm.self, forKey: .genericForm)
         genericForm.type = .generic
         
-        var batchForm = try container.decode(Form.self, forKey: .batchForm)
+        var batchForm = try container.decode(PrescriptionForm.self, forKey: .batchForm)
         batchForm.type = .batch
         
         self.medications = medications
         self.forms = [genericForm] + [batchForm] + PrescriptionInformation.medicationSpecificForms(from: container, medications: medications)
         
-        PrescriptionInformation.medicationId = ""
+        PrescriptionInformation.medicationId = nil
     }
     
     // MARK: - Private methods
     
-    private static func medicationSpecificForms(from container: KeyedDecodingContainer<CodingKeys>, medications: [Medication]) -> [Form] {
-        var medicationSpecificForms: [Form] = []
+    private static func medicationSpecificForms(from container: KeyedDecodingContainer<CodingKeys>, medications: [Medication]) -> [PrescriptionForm] {
+        var medicationSpecificForms: [PrescriptionForm] = []
         for medication in medications {
             PrescriptionInformation.medicationId = String(medication.id)
             
-            if let medicationSpecificFormResponse = try? container.decode(MedicationSpecificFormResponse.self, forKey: .medicationSpecificForm) {
-                medicationSpecificForms.append(medicationSpecificFormResponse.form)
+            if
+                let medicationSpecificFormResponse = try? container.decode(MedicationSpecificFormResponse.self, forKey: .medicationSpecificForm),
+                var form = medicationSpecificFormResponse.form {
+                form.type = .medicationSpecific
+                form.medication = medication
+                medicationSpecificForms.append(form)
             }
         }
         return medicationSpecificForms
@@ -85,14 +89,20 @@ extension PrescriptionInformation {
         
         // MARK: - Public properties
         
-        var form: Form
+        var form: PrescriptionForm?
         
         // MARK: - Initializer
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: JSONCodingKeys.self)
-            form = try container.decode(Form.self, forKey: JSONCodingKeys(stringValue: PrescriptionInformation.medicationId)!)
-            form.type = .medicationSpecific
+            
+            guard
+                let medicationId = PrescriptionInformation.medicationId,
+                let key = JSONCodingKeys(stringValue: medicationId) else {
+                    return
+            }
+            
+            form = try container.decode(PrescriptionForm.self, forKey: key)
         }
     }
 }
