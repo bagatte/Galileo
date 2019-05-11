@@ -22,7 +22,7 @@ struct MultipleSelectionQuestion: Question {
     
     let text: String
     
-    let answerChoices: [MultipleSelectionAnswer]
+    let answerChoices: [AnswerChoice]
 
-    var selectedAnswers: [MultipleSelectionAnswer] = []
+    var selectedAnswers: [AnswerChoice] = []
 }

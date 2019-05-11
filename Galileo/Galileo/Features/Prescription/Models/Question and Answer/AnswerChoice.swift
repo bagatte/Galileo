@@ -1,5 +1,5 @@
 //
-//  MultipleSelectionAnswer.swift
+//  AnswerChoice.swift
 //  Galileo
 //
 //  Created by bagatte on 5/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MultipleSelectionAnswer: Decodable {
+struct AnswerChoice: Decodable {
 
     private enum CodingKeys: String, CodingKey {
         case id
