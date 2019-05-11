@@ -9,10 +9,17 @@
 import UIKit
 
 struct FreeTextQuestion: Question {
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case text
+    }
+    
+    // MARK: - Public properties
 
     let id: String
     
     let text: String
     
-    var textAnswer: String
+    var textAnswer: String = ""
 }

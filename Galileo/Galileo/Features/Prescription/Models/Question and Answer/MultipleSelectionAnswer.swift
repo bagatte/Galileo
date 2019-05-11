@@ -8,8 +8,15 @@
 
 import UIKit
 
-struct MultipleSelectionAnswer {
+struct MultipleSelectionAnswer: Decodable {
 
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case text
+    }
+    
+    // MARK: - Public properties
+    
     let id: String
     
     let text: String

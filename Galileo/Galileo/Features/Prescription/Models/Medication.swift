@@ -8,9 +8,16 @@
 
 import UIKit
 
-struct Medication {
+struct Medication: Decodable {
 
-    let id: String
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+    }
+    
+    // MARK: - Public properties
+    
+    let id: Int
     
     let name: String
 }

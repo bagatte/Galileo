@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Question {
+protocol Question: Decodable {
     
     var id: String { get }
     

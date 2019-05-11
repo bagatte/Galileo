@@ -1,78 +1,78 @@
 {
-  "medications": [
-    {
-      "id": 6062,
-      "name": "lipitor"
-    },
-    {
-      "id": 1138,
-      "name": "Amoxil"
-    }
-  ],
-  "generic_form": {
-    "questions": [
-      {
-        "id": "41432424197045c0802e9d8cd81eaa37",
-        "type": "free_text",
-        "text": "Add any specific notes about dosing, reason/frequency, etc."
-      }
-    ]
-  },
-  "batch_form": {
-    "questions": [
-      {
-        "id": "c1ca51f3c2084aeadb566d34e201b88e",
-        "type": "multi_select",
-        "text": "Select if any of the following might apply to you.",
-        "answers": [
-          {
-            "id": "de372b81e1834a39dceec4c0989994b1",
-            "text": "Possible pregnancy"
-          },
-          {
-            "id": "394dcb0a4b494fb69f967c43901edb36",
-            "text": "Currently breastfeeding"
-          },
-          {
-            "id": "f768fe6b34074f198c4ddac00f095377",
-            "text": "Change in liver function"
-          },
-          {
-            "id": "7d1b5fd205504187875245954d5b049e",
-            "text": "Change in kidney function"
-          }
-        ]
-      }
-    ]
-  },
-  "medication_specific_forms": {
-    "6062": {
-      "questions": [
+    "medications": [
         {
-          "id": "fae3b7e944f745acd4bb355cfd81f4b8",
-          "type": "free_text",
-          "text": "Which brand are you currently, or were you last, taking?"
+            "id": 6062,
+            "name": "lipitor"
         },
         {
-          "id": "2242298ce95311e8a6fd6f6e6c696e65",
-          "type": "multi_select",
-          "text": "Select if you've experienced any of the following side effects",
-          "answers": [
-            {
-              "id": "1d22fdb4e95311e8a9d36f6e6c696e65",
-              "text": "Dizziness"
-            },
-            {
-              "id": "18bad832e95311e8bc636f6e6c696e65",
-              "text": "High blood pressure"
-            },
-            {
-              "id": "99b6af7d45b34a80a8a9bfdd1391d195",
-              "text": "Trouble sleeping"
-            }
-          ]
+            "id": 1138,
+            "name": "Amoxil"
         }
-      ]
+    ],
+    "generic_form": {
+        "questions": [
+            {
+                "id": "41432424197045c0802e9d8cd81eaa37",
+                "type": "free_text",
+                "text": "Add any specific notes about dosing, reason/frequency, etc."
+            }
+        ]
+    },
+    "batch_form": {
+        "questions": [
+            {
+                "id": "c1ca51f3c2084aeadb566d34e201b88e",
+                "type": "multi_select",
+                "text": "Select if any of the following might apply to you.",
+                "answers": [
+                    {
+                        "id": "de372b81e1834a39dceec4c0989994b1",
+                        "text": "Possible pregnancy"
+                    },
+                    {
+                        "id": "394dcb0a4b494fb69f967c43901edb36",
+                        "text": "Currently breastfeeding"
+                    },
+                    {
+                        "id": "f768fe6b34074f198c4ddac00f095377",
+                        "text": "Change in liver function"
+                    },
+                    {
+                        "id": "7d1b5fd205504187875245954d5b049e",
+                        "text": "Change in kidney function"
+                    }
+                ]
+            }
+        ]
+    },
+    "medication_specific_forms": {
+        "6062": {
+            "questions": [
+                {
+                    "id": "fae3b7e944f745acd4bb355cfd81f4b8",
+                    "type": "free_text",
+                    "text": "Which brand are you currently, or were you last, taking?"
+                },
+                {
+                    "id": "2242298ce95311e8a6fd6f6e6c696e65",
+                    "type": "multi_select",
+                    "text": "Select if you've experienced any of the following side effects",
+                    "answers": [
+                        {
+                            "id": "1d22fdb4e95311e8a9d36f6e6c696e65",
+                            "text": "Dizziness"
+                        },
+                        {
+                            "id": "18bad832e95311e8bc636f6e6c696e65",
+                            "text": "High blood pressure"
+                        },
+                        {
+                            "id": "99b6af7d45b34a80a8a9bfdd1391d195",
+                            "text": "Trouble sleeping"
+                        }
+                    ]
+                }
+            ]
+        }
     }
-  }
 }

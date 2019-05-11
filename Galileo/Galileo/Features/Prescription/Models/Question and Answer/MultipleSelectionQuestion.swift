@@ -10,11 +10,19 @@ import UIKit
 
 struct MultipleSelectionQuestion: Question {
     
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case text
+        case answerChoices = "answers"
+    }
+    
+    // MARK: - Public properties
+    
     let id: String
     
     let text: String
     
-    var answerChoices: [MultipleSelectionAnswer]
-    
-    var selectedAnswers: [MultipleSelectionAnswer]
+    let answerChoices: [MultipleSelectionAnswer]
+
+    var selectedAnswers: [MultipleSelectionAnswer] = []
 }
