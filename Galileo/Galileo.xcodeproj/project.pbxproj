@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0FFFCB522286E77400E8564E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB512286E77400E8564E /* AppDelegate.swift */; };
-		0FFFCB542286E77400E8564E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB532286E77400E8564E /* ViewController.swift */; };
-		0FFFCB572286E77400E8564E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB552286E77400E8564E /* Main.storyboard */; };
+		0FFFCB542286E77400E8564E /* PrescriptionRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */; };
+		0FFFCB572286E77400E8564E /* Prescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB552286E77400E8564E /* Prescription.storyboard */; };
 		0FFFCB592286E77500E8564E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB582286E77500E8564E /* Assets.xcassets */; };
 		0FFFCB5C2286E77500E8564E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB5A2286E77500E8564E /* LaunchScreen.storyboard */; };
-		0FFFCB672286E77500E8564E /* GalileoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB662286E77500E8564E /* GalileoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +27,12 @@
 /* Begin PBXFileReference section */
 		0FFFCB4E2286E77400E8564E /* Galileo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galileo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFCB512286E77400E8564E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FFFCB532286E77400E8564E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0FFFCB562286E77400E8564E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRequestViewController.swift; sourceTree = "<group>"; };
+		0FFFCB562286E77400E8564E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Prescription.storyboard; sourceTree = "<group>"; };
 		0FFFCB582286E77500E8564E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FFFCB5B2286E77500E8564E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FFFCB5D2286E77500E8564E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FFFCB622286E77500E8564E /* GalileoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalileoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FFFCB662286E77500E8564E /* GalileoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalileoTests.swift; sourceTree = "<group>"; };
 		0FFFCB682286E77500E8564E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,11 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				0FFFCB512286E77400E8564E /* AppDelegate.swift */,
-				0FFFCB532286E77400E8564E /* ViewController.swift */,
-				0FFFCB552286E77400E8564E /* Main.storyboard */,
-				0FFFCB582286E77500E8564E /* Assets.xcassets */,
-				0FFFCB5A2286E77500E8564E /* LaunchScreen.storyboard */,
-				0FFFCB5D2286E77500E8564E /* Info.plist */,
+				0FFFCB712286E82300E8564E /* Features */,
+				0FFFCB722286E82F00E8564E /* Resources */,
+				0FFFCB732286E83700E8564E /* Utility */,
 			);
 			path = Galileo;
 			sourceTree = "<group>";
@@ -90,10 +86,75 @@
 		0FFFCB652286E77500E8564E /* GalileoTests */ = {
 			isa = PBXGroup;
 			children = (
-				0FFFCB662286E77500E8564E /* GalileoTests.swift */,
-				0FFFCB682286E77500E8564E /* Info.plist */,
+				0FFFCB762286E98600E8564E /* Features */,
+				0FFFCB752286E97E00E8564E /* Resources */,
+				0FFFCB782286E9F100E8564E /* Utility */,
 			);
 			path = GalileoTests;
+			sourceTree = "<group>";
+		};
+		0FFFCB712286E82300E8564E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCB742286E88700E8564E /* Prescription */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0FFFCB722286E82F00E8564E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCB5A2286E77500E8564E /* LaunchScreen.storyboard */,
+				0FFFCB582286E77500E8564E /* Assets.xcassets */,
+				0FFFCB5D2286E77500E8564E /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0FFFCB732286E83700E8564E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0FFFCB742286E88700E8564E /* Prescription */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCB552286E77400E8564E /* Prescription.storyboard */,
+				0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */,
+			);
+			path = Prescription;
+			sourceTree = "<group>";
+		};
+		0FFFCB752286E97E00E8564E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCB682286E77500E8564E /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0FFFCB762286E98600E8564E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCB772286E99100E8564E /* Prescription */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0FFFCB772286E99100E8564E /* Prescription */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Prescription;
+			sourceTree = "<group>";
+		};
+		0FFFCB782286E9F100E8564E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +240,7 @@
 			files = (
 				0FFFCB5C2286E77500E8564E /* LaunchScreen.storyboard in Resources */,
 				0FFFCB592286E77500E8564E /* Assets.xcassets in Resources */,
-				0FFFCB572286E77400E8564E /* Main.storyboard in Resources */,
+				0FFFCB572286E77400E8564E /* Prescription.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFFCB542286E77400E8564E /* ViewController.swift in Sources */,
+				0FFFCB542286E77400E8564E /* PrescriptionRequestViewController.swift in Sources */,
 				0FFFCB522286E77400E8564E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFFCB672286E77500E8564E /* GalileoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,12 +281,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0FFFCB552286E77400E8564E /* Main.storyboard */ = {
+		0FFFCB552286E77400E8564E /* Prescription.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0FFFCB562286E77400E8564E /* Base */,
 			);
-			name = Main.storyboard;
+			name = Prescription.storyboard;
 			sourceTree = "<group>";
 		};
 		0FFFCB5A2286E77500E8564E /* LaunchScreen.storyboard */ = {
@@ -362,7 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SB5PKK43B;
-				INFOPLIST_FILE = Galileo/Info.plist;
+				INFOPLIST_FILE = Galileo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,7 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SB5PKK43B;
-				INFOPLIST_FILE = Galileo/Info.plist;
+				INFOPLIST_FILE = Galileo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +461,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SB5PKK43B;
-				INFOPLIST_FILE = GalileoTests/Info.plist;
+				INFOPLIST_FILE = GalileoTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,7 +482,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SB5PKK43B;
-				INFOPLIST_FILE = GalileoTests/Info.plist;
+				INFOPLIST_FILE = GalileoTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

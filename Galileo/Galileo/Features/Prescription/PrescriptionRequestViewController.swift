@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PrescriptionRequestViewController.swift
 //  Galileo
 //
 //  Created by bagatte on 5/11/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PrescriptionRequestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
 
