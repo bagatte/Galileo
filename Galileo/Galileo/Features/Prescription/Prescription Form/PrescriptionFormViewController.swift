@@ -44,6 +44,15 @@ final class PrescriptionFormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+        
         title = flow.current.title
         bottomButton.setTitle(hasNextFlowForm ? "Next" : "Submit", for: .normal)
         
@@ -114,6 +123,50 @@ final class PrescriptionFormViewController: UIViewController {
             prescriptionInformation: prescriptionInformation,
             from: navigationController
         )
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+                return
+        }
+        
+        let keyboardSize = keyboardFrameValue.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: tableView.contentInset.top,
+                                         left: tableView.contentInset.left,
+                                         bottom: keyboardSize.height,
+                                         right: tableView.contentInset.right)
+        
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.tableView.contentInset = contentInsets
+            strongSelf.tableView.scrollIndicatorInsets = contentInsets
+        })
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+                return
+        }
+        
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.tableView.contentInset = UIEdgeInsets(top: strongSelf.tableView.contentInset.top,
+                                                             left: strongSelf.tableView.contentInset.left,
+                                                             bottom: 0,
+                                                             right: strongSelf.tableView.contentInset.right)
+            strongSelf.tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+        })
     }
 }
 
@@ -190,6 +243,13 @@ extension PrescriptionFormViewController: UITableViewDataSource {
             self?.updateResponseDictionary(key: "choice_id", type: String.self, id: answerChoice.id, answerDictionary: answerDictionary)
         }
         return cell
+    }
+}
+
+extension PrescriptionFormViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
     }
 }
 
