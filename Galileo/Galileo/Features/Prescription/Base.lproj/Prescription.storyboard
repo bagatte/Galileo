@@ -17,14 +17,81 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiU-Ds-amZ">
+                                <rect key="frame" x="20" y="341" width="374" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="23A-WY-VPF"/>
+                                </constraints>
+                                <state key="normal" title="Prescription for Lipitor and Amoxil"/>
+                                <connections>
+                                    <action selector="requestPrescriptionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYo-Le-w7x"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oiU-Ds-amZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DmA-eV-CsD"/>
+                            <constraint firstItem="oiU-Ds-amZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="N8Q-4U-gNa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oiU-Ds-amZ" secondAttribute="trailing" constant="20" id="eyq-lD-P7l"/>
+                            <constraint firstItem="oiU-Ds-amZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gMZ-6h-bY2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Xw-3r-bu9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="119.83695652173914"/>
+            <point key="canvasLocation" x="1024.6376811594205" y="119.83695652173914"/>
+        </scene>
+        <!--Prescription Form View Controller-->
+        <scene sceneID="mui-u4-cnc">
+            <objects>
+                <viewController storyboardIdentifier="PrescriptionFormViewController" id="BbR-7U-vJC" customClass="PrescriptionFormViewController" customModule="Galileo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I87-F4-7Tn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQi-ek-7GT">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BbR-7U-vJC" id="QGk-ZD-owA"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pZ-gm-ngd">
+                                <rect key="frame" x="20" y="662" width="374" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="aE9-Bm-ESM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="bottomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLF-SF-db2"/>
+                                    <action selector="bottomButtonTapped:" destination="BbR-7U-vJC" eventType="touchUpInside" id="lbf-ND-H1a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Chw-cl-r2M" firstAttribute="trailing" secondItem="0pZ-gm-ngd" secondAttribute="trailing" constant="20" id="GYV-q5-jMW"/>
+                            <constraint firstItem="Chw-cl-r2M" firstAttribute="bottom" secondItem="0pZ-gm-ngd" secondAttribute="bottom" constant="20" id="I3n-Bh-gbS"/>
+                            <constraint firstItem="WQi-ek-7GT" firstAttribute="top" secondItem="Chw-cl-r2M" secondAttribute="top" id="Pny-ss-jGb"/>
+                            <constraint firstItem="WQi-ek-7GT" firstAttribute="trailing" secondItem="Chw-cl-r2M" secondAttribute="trailing" id="aLD-oI-d08"/>
+                            <constraint firstItem="WQi-ek-7GT" firstAttribute="bottom" secondItem="Chw-cl-r2M" secondAttribute="bottom" id="avl-Do-qfz"/>
+                            <constraint firstItem="WQi-ek-7GT" firstAttribute="leading" secondItem="Chw-cl-r2M" secondAttribute="leading" id="krZ-II-y0b"/>
+                            <constraint firstItem="0pZ-gm-ngd" firstAttribute="leading" secondItem="Chw-cl-r2M" secondAttribute="leading" constant="20" id="vD1-pF-Woo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Chw-cl-r2M"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="0pZ-gm-ngd" id="HLC-9m-zRF"/>
+                        <outlet property="tableView" destination="WQi-ek-7GT" id="cm7-tZ-rHR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGv-pq-AOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715.9420289855075" y="119.83695652173914"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yeA-bz-Ku4">

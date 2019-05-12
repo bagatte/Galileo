@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5277E522877D5D009454F8 /* UIStoryboard+StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5277E422877D5D009454F8 /* UIStoryboard+StoryboardInstantiable.swift */; };
+		0F5277E822878134009454F8 /* PrescriptionViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5277E722878134009454F8 /* PrescriptionViewControllerBuilder.swift */; };
+		0F5277EA2287814D009454F8 /* PrescriptionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5277E92287814D009454F8 /* PrescriptionRouter.swift */; };
+		0F5277ED228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5277EB228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.swift */; };
+		0F5277EE228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5277EC228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib */; };
 		0FFFCB522286E77400E8564E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB512286E77400E8564E /* AppDelegate.swift */; };
 		0FFFCB542286E77400E8564E /* PrescriptionRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */; };
 		0FFFCB572286E77400E8564E /* Prescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB552286E77400E8564E /* Prescription.storyboard */; };
@@ -49,6 +54,13 @@
 		0FFFCBB82286F3C100E8564E /* StaticPrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */; };
 		0FFFCBB92286F3C100E8564E /* StaticPrecriptionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */; };
 		0FFFCBBC2286F53E00E8564E /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBBB2286F53E00E8564E /* JSONDecoder+Extensions.swift */; };
+		0FFFCBC422875B4700E8564E /* PrescriptionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */; };
+		0FFFCBC7228760D200E8564E /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBC6228760D200E8564E /* UITableView+Extensions.swift */; };
+		0FFFCBC9228760FA00E8564E /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBC8228760FA00E8564E /* NibLoadable.swift */; };
+		0FFFCBCE2287617200E8564E /* QuestionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBCC2287617200E8564E /* QuestionTitleTableViewCell.swift */; };
+		0FFFCBCF2287617200E8564E /* QuestionTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCBCD2287617200E8564E /* QuestionTitleTableViewCell.xib */; };
+		0FFFCBD22287729500E8564E /* FreeTextQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBD02287729500E8564E /* FreeTextQuestionTableViewCell.swift */; };
+		0FFFCBD32287729500E8564E /* FreeTextQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCBD12287729500E8564E /* FreeTextQuestionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +74,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F5277E422877D5D009454F8 /* UIStoryboard+StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+StoryboardInstantiable.swift"; sourceTree = "<group>"; };
+		0F5277E722878134009454F8 /* PrescriptionViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionViewControllerBuilder.swift; sourceTree = "<group>"; };
+		0F5277E92287814D009454F8 /* PrescriptionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRouter.swift; sourceTree = "<group>"; };
+		0F5277EB228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		0F5277EC228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleSelectionQuestionTableViewCell.xib; sourceTree = "<group>"; };
 		0FFFCB4E2286E77400E8564E /* Galileo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galileo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFCB512286E77400E8564E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRequestViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +109,13 @@
 		0FFFCBB42286F36600E8564E /* PrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecriptionDataProvider.swift; sourceTree = "<group>"; };
 		0FFFCBB72286F3C100E8564E /* StaticPrecriptionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPrecriptionDataProvider.swift; sourceTree = "<group>"; };
 		0FFFCBBB2286F53E00E8564E /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
+		0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionFormViewController.swift; sourceTree = "<group>"; };
+		0FFFCBC6228760D200E8564E /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		0FFFCBC8228760FA00E8564E /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		0FFFCBCC2287617200E8564E /* QuestionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTitleTableViewCell.swift; sourceTree = "<group>"; };
+		0FFFCBCD2287617200E8564E /* QuestionTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTitleTableViewCell.xib; sourceTree = "<group>"; };
+		0FFFCBD02287729500E8564E /* FreeTextQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTextQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		0FFFCBD12287729500E8564E /* FreeTextQuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreeTextQuestionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F5277E622878121009454F8 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0F5277E722878134009454F8 /* PrescriptionViewControllerBuilder.swift */,
+				0F5277E92287814D009454F8 /* PrescriptionRouter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		0FFFCB452286E77400E8564E = {
 			isa = PBXGroup;
 			children = (
@@ -185,9 +218,12 @@
 				0FFFCBB32286F33E00E8564E /* Data Provider */,
 				0FFFCB902286ED3B00E8564E /* JSON */,
 				0FFFCB962286EE4500E8564E /* Models */,
+				0F5277E622878121009454F8 /* Navigation */,
 				0FFFCB552286E77400E8564E /* Prescription.storyboard */,
+				0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */,
 				0FFFCB9A2286EED400E8564E /* PrescriptionRequestFormType.swift */,
 				0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */,
+				0FFFCBCA2287612F00E8564E /* Views */,
 			);
 			path = Prescription;
 			sourceTree = "<group>";
@@ -288,8 +324,32 @@
 			isa = PBXGroup;
 			children = (
 				0FFFCBBB2286F53E00E8564E /* JSONDecoder+Extensions.swift */,
+				0FFFCBC8228760FA00E8564E /* NibLoadable.swift */,
+				0FFFCBC6228760D200E8564E /* UITableView+Extensions.swift */,
+				0F5277E422877D5D009454F8 /* UIStoryboard+StoryboardInstantiable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FFFCBCA2287612F00E8564E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCBCB2287613400E8564E /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0FFFCBCB2287613400E8564E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFCBD02287729500E8564E /* FreeTextQuestionTableViewCell.swift */,
+				0FFFCBD12287729500E8564E /* FreeTextQuestionTableViewCell.xib */,
+				0F5277EB228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.swift */,
+				0F5277EC228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib */,
+				0FFFCBCC2287617200E8564E /* QuestionTitleTableViewCell.swift */,
+				0FFFCBCD2287617200E8564E /* QuestionTitleTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +433,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FFFCBD32287729500E8564E /* FreeTextQuestionTableViewCell.xib in Resources */,
 				0FFFCB5C2286E77500E8564E /* LaunchScreen.storyboard in Resources */,
 				0FFFCB592286E77500E8564E /* Assets.xcassets in Resources */,
 				0FFFCB572286E77400E8564E /* Prescription.storyboard in Resources */,
 				0FFFCB922286ED5F00E8564E /* prescription_request.json in Resources */,
+				0F5277EE228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib in Resources */,
+				0FFFCBCF2287617200E8564E /* QuestionTitleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,22 +458,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FFFCBD22287729500E8564E /* FreeTextQuestionTableViewCell.swift in Sources */,
 				0FFFCB982286EE6A00E8564E /* Medication.swift in Sources */,
 				0FFFCB542286E77400E8564E /* PrescriptionRequestViewController.swift in Sources */,
 				0FFFCB842286EB3D00E8564E /* FileReaderError.swift in Sources */,
 				0FFFCB812286EB1000E8564E /* FileReader.swift in Sources */,
+				0F5277E522877D5D009454F8 /* UIStoryboard+StoryboardInstantiable.swift in Sources */,
 				0FFFCB7B2286EACD00E8564E /* FileReadable.swift in Sources */,
+				0F5277ED228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.swift in Sources */,
 				0FFFCBAE2286F26C00E8564E /* PrescriptionInformation.swift in Sources */,
 				0FFFCBB52286F36600E8564E /* PrecriptionDataProvider.swift in Sources */,
+				0FFFCBC9228760FA00E8564E /* NibLoadable.swift in Sources */,
 				0FFFCBAB2286F19800E8564E /* AnswerChoice.swift in Sources */,
 				0FFFCB9F2286EF5500E8564E /* Question.swift in Sources */,
 				0FFFCBB12286F29800E8564E /* PrescriptionForm.swift in Sources */,
+				0FFFCBCE2287617200E8564E /* QuestionTitleTableViewCell.swift in Sources */,
+				0FFFCBC7228760D200E8564E /* UITableView+Extensions.swift in Sources */,
+				0FFFCBC422875B4700E8564E /* PrescriptionFormViewController.swift in Sources */,
 				0FFFCB8E2286EC5F00E8564E /* Result.swift in Sources */,
 				0FFFCBA82286F0EB00E8564E /* MultipleSelectionQuestion.swift in Sources */,
 				0FFFCBA52286F07100E8564E /* FreeTextQuestion.swift in Sources */,
 				0FFFCB9B2286EED400E8564E /* PrescriptionRequestFormType.swift in Sources */,
 				0FFFCB522286E77400E8564E /* AppDelegate.swift in Sources */,
 				0FFFCBB82286F3C100E8564E /* StaticPrecriptionDataProvider.swift in Sources */,
+				0F5277EA2287814D009454F8 /* PrescriptionRouter.swift in Sources */,
+				0F5277E822878134009454F8 /* PrescriptionViewControllerBuilder.swift in Sources */,
 				0FFFCB7E2286EAF300E8564E /* FileType.swift in Sources */,
 				0FFFCBBC2286F53E00E8564E /* JSONDecoder+Extensions.swift in Sources */,
 			);
