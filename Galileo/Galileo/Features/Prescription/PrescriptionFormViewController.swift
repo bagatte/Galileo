@@ -12,8 +12,8 @@ final class PrescriptionFormViewController: UIViewController {
     
     private enum Row {
         case title(text: String)
-        case freeText(title: String)
-        case multipleSelection(title: String)
+        case freeText(title: String, questionId: String, medicationId: Int?)
+        case multipleSelection(title: String, questionId: String, answerChoice: AnswerChoice)
     }
     
     private enum Section {
@@ -28,8 +28,8 @@ final class PrescriptionFormViewController: UIViewController {
     // MARK: - Public properties
     
     var prescriptionInformation: PrescriptionInformation!
-    var formType: PrescriptionRequestFormType!
-    var nextFormType: PrescriptionRequestFormType!
+    var flow: PrescriptionRequestFormFlow!
+    var responseDictionary: [String: [[String: Any]]]?
     
     // MARK: - Private properties
     
@@ -37,11 +37,24 @@ final class PrescriptionFormViewController: UIViewController {
     private var medications: [Medication] {
         return prescriptionInformation.medications
     }
+    private var hasNextFlowForm: Bool {
+        return prescriptionInformation.forms.contains(where: { return $0.type == flow.next })
+    }
     
     // MARK: - Lyfecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = flow.current.title
+        bottomButton.setTitle(hasNextFlowForm ? "Next" : "Submit", for: .normal)
+        
+        if responseDictionary == nil {
+            responseDictionary = [String: [[String: Any]]]()
+        }
+        if responseDictionary?.keys.contains(flow.current.rawValue) == false {
+            responseDictionary?[flow.current.rawValue] = []
+        }
         
         sections = setupSections()
         
@@ -58,15 +71,17 @@ final class PrescriptionFormViewController: UIViewController {
         
         for form in forms {
             for question in form.questions {
+                rows = []
+                
                 rows.append(.title(text: question.text))
                 
                 for medication in medications {
                     if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
                         for answerChoice in multipleSelectionQuestion.answerChoices {
-                            rows.append(.multipleSelection(title: answerChoice.text))
+                            rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
                         }
                     } else {
-                        rows.append(.freeText(title: medication.name))
+                        rows.append(.freeText(title: medication.name, questionId: question.id, medicationId: medication.id))
                     }
                 }
                 
@@ -81,18 +96,18 @@ final class PrescriptionFormViewController: UIViewController {
         var sections: [Section] = []
         var rows: [Row] = []
         
-        for form in forms {
-            rows = []
-            
+        for form in forms {            
             for question in form.questions {
+                rows = []
+                
                 rows.append(.title(text: question.text))
                 
                 if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
                     for answerChoice in multipleSelectionQuestion.answerChoices {
-                        rows.append(.multipleSelection(title: answerChoice.text))
+                        rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
                     }
                 } else {
-                    rows.append(.freeText(title: question.text))
+                    rows.append(.freeText(title: question.text, questionId: question.id, medicationId: nil))
                 }
                 
                 sections.append(Section.rows(rows))
@@ -109,18 +124,20 @@ final class PrescriptionFormViewController: UIViewController {
         for form in forms {
             rows = []
             
-            if let medication = form.medication {
-                rows.append(.title(text: "Regarding \(medication.name)"))
+            guard let medication = form.medication else {
+                return sections
             }
+            
+            rows.append(.title(text: "Regarding \(medication.name)"))
             
             for question in form.questions {
                 if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
                     for answerChoice in multipleSelectionQuestion.answerChoices {
-                        rows.append(.multipleSelection(title: answerChoice.text))
+                        rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
                     }
                     
                 } else {
-                    rows.append(.freeText(title: question.text))
+                    rows.append(.freeText(title: question.text, questionId: question.id, medicationId: medication.id))
                 }
             }
             
@@ -131,6 +148,7 @@ final class PrescriptionFormViewController: UIViewController {
     }
     
     private func setupSections() -> [Section] {
+        let formType = flow.current
         let forms = prescriptionInformation.forms.filter{ return $0.type == formType }
         
         if formType == .generic {
@@ -144,6 +162,20 @@ final class PrescriptionFormViewController: UIViewController {
         return sections
     }
     
+    private func updateResponseDictionary<T: Comparable>(key: String, type: T.Type, id: T, answerDictionary: [String: Any]) {
+        guard let dictionaries = responseDictionary?[flow.current.rawValue] else {
+            return
+        }
+        
+        for (index, dictionary) in dictionaries.enumerated() {
+            if let medicationID = dictionary[key] as? T, medicationID == id {
+                responseDictionary?[flow.current.rawValue]?.remove(at: index)
+                break
+            }
+        }
+        responseDictionary?[flow.current.rawValue]?.append(answerDictionary)
+    }
+    
     // MARK: - IBActions
     
     @IBAction private func bottomButtonTapped(_ sender: Any) {
@@ -151,9 +183,17 @@ final class PrescriptionFormViewController: UIViewController {
             return
         }
         
+        guard flow.next != nil, hasNextFlowForm else {
+            print(responseDictionary!)
+            navigationController.popToRootViewController(animated: true)
+            return
+        }
+        
+        let nextIndex = flow.index + 1
+        
         PrescriptionRouter.routeToPrescriptionFormViewController(
-            formType: nextFormType,
-            nextFormType: .medicationSpecific,
+            flow: PrescriptionRequestFormFlow(startIndex: nextIndex),
+            responseDictionary: responseDictionary,
             prescriptionInformation: prescriptionInformation,
             from: navigationController
         )
@@ -183,19 +223,56 @@ extension PrescriptionFormViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(QuestionTitleTableViewCell.self, forIndexPath: indexPath)
                 cell.set(title: text)
                 return cell
-            case .freeText(let title):
-                let cell = tableView.dequeueReusableCell(FreeTextQuestionTableViewCell.self, forIndexPath: indexPath)
-                cell.layout(title: title)
-                cell.textChanged = { [weak self] newText in
-                    self?.tableView.performBatchUpdates(nil)
-                }
-                return cell
-            case .multipleSelection(let title):
-                let cell = tableView.dequeueReusableCell(MultipleSelectionQuestionTableViewCell.self, forIndexPath: indexPath)
-                cell.set(title: title)
-                return cell
+            case .freeText(let title, let questionId, let medicationId):
+                return freeTextQuestionTableViewCell(title: title, questionId: questionId, medicationId: medicationId, in: tableView, at: indexPath)
+            case .multipleSelection(let title, let questionId, let answerChoice):
+                return multipleSelectionCell(title: title, questionId: questionId, answerChoice: answerChoice, in: tableView, at: indexPath)
             }
         }
+    }
+    
+    // MARK: - Private methods
+    
+    private func freeTextQuestionTableViewCell(title: String,
+                                               questionId: String,
+                                               medicationId: Int?,
+                                               in tableView: UITableView,
+                                               at indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(FreeTextQuestionTableViewCell.self, forIndexPath: indexPath)
+        cell.layout(title: title)
+        cell.textChanged = { [weak self] newText in
+            self?.tableView.performBatchUpdates(nil)
+            
+            var answerDictionary: [String: Any] = [
+                "question_id": questionId,
+                "answer": newText
+            ]
+            if let medicationId = medicationId {
+                answerDictionary["medication_id"] = medicationId
+            }
+            
+            self?.updateResponseDictionary(key: "medication_id", type: Int.self, id: medicationId ?? 0, answerDictionary: answerDictionary)
+        }
+        return cell
+    }
+    
+    private func multipleSelectionCell(title: String,
+                                       questionId: String,
+                                       answerChoice: AnswerChoice,
+                                       in tableView: UITableView,
+                                       at indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(MultipleSelectionQuestionTableViewCell.self, forIndexPath: indexPath)
+        cell.set(title: title)
+        cell.switchButtonChanged = { [weak self] isOn in
+            let answerDictionary: [String: Any] = [
+                "question_id": questionId,
+                "choice_id": answerChoice.id,
+                "is_on": isOn
+            ]
+            
+            self?.updateResponseDictionary(key: "choice_id", type: String.self, id: answerChoice.id, answerDictionary: answerDictionary)
+        }
+        return cell
     }
 }
 

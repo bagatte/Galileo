@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQi-ek-7GT">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -61,26 +61,29 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pZ-gm-ngd">
-                                <rect key="frame" x="20" y="662" width="374" height="54"/>
+                                <rect key="frame" x="0.0" y="682" width="414" height="54"/>
+                                <color key="backgroundColor" red="0.40912107599999997" green="0.67968006650000001" blue="0.94946167940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="aE9-Bm-ESM"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="bottomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLF-SF-db2"/>
                                     <action selector="bottomButtonTapped:" destination="BbR-7U-vJC" eventType="touchUpInside" id="lbf-ND-H1a"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Chw-cl-r2M" firstAttribute="trailing" secondItem="0pZ-gm-ngd" secondAttribute="trailing" constant="20" id="GYV-q5-jMW"/>
-                            <constraint firstItem="Chw-cl-r2M" firstAttribute="bottom" secondItem="0pZ-gm-ngd" secondAttribute="bottom" constant="20" id="I3n-Bh-gbS"/>
+                            <constraint firstItem="0pZ-gm-ngd" firstAttribute="top" secondItem="WQi-ek-7GT" secondAttribute="bottom" id="71N-CJ-FLQ"/>
+                            <constraint firstItem="Chw-cl-r2M" firstAttribute="trailing" secondItem="0pZ-gm-ngd" secondAttribute="trailing" id="GYV-q5-jMW"/>
+                            <constraint firstItem="Chw-cl-r2M" firstAttribute="bottom" secondItem="0pZ-gm-ngd" secondAttribute="bottom" id="I3n-Bh-gbS"/>
                             <constraint firstItem="WQi-ek-7GT" firstAttribute="top" secondItem="Chw-cl-r2M" secondAttribute="top" id="Pny-ss-jGb"/>
                             <constraint firstItem="WQi-ek-7GT" firstAttribute="trailing" secondItem="Chw-cl-r2M" secondAttribute="trailing" id="aLD-oI-d08"/>
-                            <constraint firstItem="WQi-ek-7GT" firstAttribute="bottom" secondItem="Chw-cl-r2M" secondAttribute="bottom" id="avl-Do-qfz"/>
                             <constraint firstItem="WQi-ek-7GT" firstAttribute="leading" secondItem="Chw-cl-r2M" secondAttribute="leading" id="krZ-II-y0b"/>
-                            <constraint firstItem="0pZ-gm-ngd" firstAttribute="leading" secondItem="Chw-cl-r2M" secondAttribute="leading" constant="20" id="vD1-pF-Woo"/>
+                            <constraint firstItem="0pZ-gm-ngd" firstAttribute="leading" secondItem="Chw-cl-r2M" secondAttribute="leading" id="vD1-pF-Woo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Chw-cl-r2M"/>
                     </view>

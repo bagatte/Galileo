@@ -12,13 +12,13 @@ final class PrescriptionRouter {
     
     static let viewControllerBuilder = PrescriptionViewControllerBuilder()
     
-    static func routeToPrescriptionFormViewController(formType: PrescriptionRequestFormType,
-                                                      nextFormType: PrescriptionRequestFormType,
+    static func routeToPrescriptionFormViewController(flow: PrescriptionRequestFormFlow,
+                                                      responseDictionary: [String: [[String: Any]]]? = nil,
                                                       prescriptionInformation: PrescriptionInformation,
                                                       from navigationController: UINavigationController) {
         let viewController = viewControllerBuilder.buildPrescriptionFormViewController(
-            formType: formType,
-            nextFormType: nextFormType,
+            flow: flow,
+            responseDictionary: responseDictionary,
             prescriptionInformation:prescriptionInformation
         )
         navigationController.pushViewController(viewController, animated: true)

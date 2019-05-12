@@ -10,12 +10,15 @@ import UIKit
 
 final class MultipleSelectionQuestionTableViewCell: UITableViewCell, NibLoadable {
     
+    var switchButtonChanged: ((_ isOn: Bool) -> Void)?
+    
     @IBOutlet private weak var titleLabel: UILabel!
     
     func set(title: String) {
         titleLabel.text = title
     }
     
-    @IBAction private func switchButton(_ sender: Any) {
+    @IBAction func switchButtonValueChanged(_ sender: UISwitch) {
+        switchButtonChanged?(sender.isOn)
     }
 }

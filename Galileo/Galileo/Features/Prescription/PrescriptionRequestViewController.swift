@@ -44,8 +44,7 @@ final class PrescriptionRequestViewController: UIViewController {
         }
         
         PrescriptionRouter.routeToPrescriptionFormViewController(
-            formType: .generic,
-            nextFormType: .batch,
+            flow: PrescriptionRequestFormFlow(startIndex: 0),
             prescriptionInformation: prescriptionInformation,
             from: navigationController
         )

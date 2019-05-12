@@ -10,13 +10,13 @@ import UIKit
 
 final class PrescriptionViewControllerBuilder {
     
-    func buildPrescriptionFormViewController(formType: PrescriptionRequestFormType,
-                                             nextFormType: PrescriptionRequestFormType,
+    func buildPrescriptionFormViewController(flow: PrescriptionRequestFormFlow,
+                                             responseDictionary: [String: [[String: Any]]]?,
                                              prescriptionInformation: PrescriptionInformation) -> PrescriptionFormViewController {
         let viewController = UIStoryboard.instantiateViewControllerOfType(PrescriptionFormViewController.self)
         
-        viewController.formType = formType
-        viewController.nextFormType = nextFormType
+        viewController.flow = flow
+        viewController.responseDictionary = responseDictionary
         viewController.prescriptionInformation = prescriptionInformation
         
         return viewController

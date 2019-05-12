@@ -20,6 +20,4 @@ struct FreeTextQuestion: Question {
     let id: String
     
     let text: String
-    
-    var textAnswer: String?
 }

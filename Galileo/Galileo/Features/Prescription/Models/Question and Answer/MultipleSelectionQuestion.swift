@@ -23,6 +23,4 @@ struct MultipleSelectionQuestion: Question {
     let text: String
     
     let answerChoices: [AnswerChoice]
-
-    var selectedAnswers: [AnswerChoice] = []
 }
