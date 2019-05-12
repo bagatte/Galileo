@@ -10,13 +10,13 @@ import UIKit
 
 final class PrescriptionFormViewController: UIViewController {
     
-    private enum Row {
+    enum Row {
         case title(text: String)
         case freeText(title: String, questionId: String, medicationId: Int?)
         case multipleSelection(title: String, questionId: String, answerChoice: AnswerChoice)
     }
-    
-    private enum Section {
+
+    enum Section {
         case rows(_ rows: [Row])
     }
     
@@ -34,9 +34,7 @@ final class PrescriptionFormViewController: UIViewController {
     // MARK: - Private properties
     
     private var sections: [Section] = []
-    private var medications: [Medication] {
-        return prescriptionInformation.medications
-    }
+    private let formCreator: PrescriptionFormCreator = PrescriptionFormCreator()
     private var hasNextFlowForm: Bool {
         return prescriptionInformation.forms.contains(where: { return $0.type == flow.next })
     }
@@ -65,98 +63,17 @@ final class PrescriptionFormViewController: UIViewController {
     
     // MARK: - Private methods
     
-    private func setupGenericFormSections(from forms: [PrescriptionForm]) -> [Section] {
-        var sections: [Section] = []
-        var rows: [Row] = []
-        
-        for form in forms {
-            for question in form.questions {
-                rows = []
-                
-                rows.append(.title(text: question.text))
-                
-                for medication in medications {
-                    if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
-                        for answerChoice in multipleSelectionQuestion.answerChoices {
-                            rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
-                        }
-                    } else {
-                        rows.append(.freeText(title: medication.name, questionId: question.id, medicationId: medication.id))
-                    }
-                }
-                
-                sections.append(Section.rows(rows))
-            }
-        }
-        
-        return sections
-    }
-    
-    private func setupBatchFormSections(from forms: [PrescriptionForm]) -> [Section] {
-        var sections: [Section] = []
-        var rows: [Row] = []
-        
-        for form in forms {            
-            for question in form.questions {
-                rows = []
-                
-                rows.append(.title(text: question.text))
-                
-                if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
-                    for answerChoice in multipleSelectionQuestion.answerChoices {
-                        rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
-                    }
-                } else {
-                    rows.append(.freeText(title: question.text, questionId: question.id, medicationId: nil))
-                }
-                
-                sections.append(Section.rows(rows))
-            }
-        }
-        
-        return sections
-    }
-    
-    private func setupMedicationSpecificFormSections(from forms: [PrescriptionForm]) -> [Section] {
-        var sections: [Section] = []
-        var rows: [Row] = []
-        
-        for form in forms {
-            rows = []
-            
-            guard let medication = form.medication else {
-                return sections
-            }
-            
-            rows.append(.title(text: "Regarding \(medication.name)"))
-            
-            for question in form.questions {
-                if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
-                    for answerChoice in multipleSelectionQuestion.answerChoices {
-                        rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
-                    }
-                    
-                } else {
-                    rows.append(.freeText(title: question.text, questionId: question.id, medicationId: medication.id))
-                }
-            }
-            
-            sections.append(Section.rows(rows))
-        }
-        
-        return sections
-    }
-    
     private func setupSections() -> [Section] {
         let formType = flow.current
         let forms = prescriptionInformation.forms.filter{ return $0.type == formType }
         
-        if formType == .generic {
-            sections = setupGenericFormSections(from: forms)
-        } else if formType == .batch {
-            sections = setupBatchFormSections(from: forms)
-        } else if formType == .medicationSpecific {
-            sections = setupMedicationSpecificFormSections(from: forms)
+        switch formType {
+        case .generic:
+            sections = formCreator.createGenericFormSections(from: forms, medications: prescriptionInformation.medications)
+        case .batch:
+            sections = formCreator.createBatchFormSections(from: forms)
+        case .medicationSpecific:
+            sections = formCreator.createMedicationSpecificFormSections(from: forms)
         }
         
         return sections

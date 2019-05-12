@@ -15,6 +15,7 @@
 		0FFE455E228835A6006D60C8 /* PrescriptionRequestFormFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE455D228835A6006D60C8 /* PrescriptionRequestFormFlow.swift */; };
 		0FFE456022887AF0006D60C8 /* PrecriptionDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE455F22887AF0006D60C8 /* PrecriptionDataProviderTests.swift */; };
 		0FFE456122887BEE006D60C8 /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCBBB2286F53E00E8564E /* JSONDecoder+Extensions.swift */; };
+		0FFE45642288802B006D60C8 /* PrescriptionFormCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE45632288802B006D60C8 /* PrescriptionFormCreator.swift */; };
 		0FFFCB522286E77400E8564E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB512286E77400E8564E /* AppDelegate.swift */; };
 		0FFFCB542286E77400E8564E /* PrescriptionRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */; };
 		0FFFCB572286E77400E8564E /* Prescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFCB552286E77400E8564E /* Prescription.storyboard */; };
@@ -84,6 +85,7 @@
 		0F5277EC228785EC009454F8 /* MultipleSelectionQuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleSelectionQuestionTableViewCell.xib; sourceTree = "<group>"; };
 		0FFE455D228835A6006D60C8 /* PrescriptionRequestFormFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRequestFormFlow.swift; sourceTree = "<group>"; };
 		0FFE455F22887AF0006D60C8 /* PrecriptionDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecriptionDataProviderTests.swift; sourceTree = "<group>"; };
+		0FFE45632288802B006D60C8 /* PrescriptionFormCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionFormCreator.swift; sourceTree = "<group>"; };
 		0FFFCB4E2286E77400E8564E /* Galileo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galileo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFCB512286E77400E8564E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionRequestViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				0FFFCB962286EE4500E8564E /* Models */,
 				0F5277E622878121009454F8 /* Navigation */,
 				0FFFCB552286E77400E8564E /* Prescription.storyboard */,
+				0FFE45632288802B006D60C8 /* PrescriptionFormCreator.swift */,
 				0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */,
 				0FFFCB9A2286EED400E8564E /* PrescriptionRequestFormType.swift */,
 				0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */,
@@ -501,6 +504,7 @@
 				0F5277E822878134009454F8 /* PrescriptionViewControllerBuilder.swift in Sources */,
 				0FFFCB7E2286EAF300E8564E /* FileType.swift in Sources */,
 				0FFFCBBC2286F53E00E8564E /* JSONDecoder+Extensions.swift in Sources */,
+				0FFE45642288802B006D60C8 /* PrescriptionFormCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
