@@ -161,6 +161,16 @@
 			path = "Data Provider";
 			sourceTree = "<group>";
 		};
+		0FFE4565228881ED006D60C8 /* Prescription Form */ = {
+			isa = PBXGroup;
+			children = (
+				0FFE45632288802B006D60C8 /* PrescriptionFormCreator.swift */,
+				0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */,
+				0FFFCB9A2286EED400E8564E /* PrescriptionRequestFormType.swift */,
+			);
+			path = "Prescription Form";
+			sourceTree = "<group>";
+		};
 		0FFFCB452286E77400E8564E = {
 			isa = PBXGroup;
 			children = (
@@ -235,10 +245,8 @@
 				0FFFCB902286ED3B00E8564E /* JSON */,
 				0FFFCB962286EE4500E8564E /* Models */,
 				0F5277E622878121009454F8 /* Navigation */,
+				0FFE4565228881ED006D60C8 /* Prescription Form */,
 				0FFFCB552286E77400E8564E /* Prescription.storyboard */,
-				0FFE45632288802B006D60C8 /* PrescriptionFormCreator.swift */,
-				0FFFCBC322875B4700E8564E /* PrescriptionFormViewController.swift */,
-				0FFFCB9A2286EED400E8564E /* PrescriptionRequestFormType.swift */,
 				0FFFCB532286E77400E8564E /* PrescriptionRequestViewController.swift */,
 				0FFFCBCA2287612F00E8564E /* Views */,
 			);
