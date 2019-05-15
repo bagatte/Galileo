@@ -77,6 +77,8 @@ final class PrescriptionFormCreator {
             
             for question in form.questions {
                 if let multipleSelectionQuestion = question as? MultipleSelectionQuestion {
+                    rows.append(.title(text: question.text))
+                    
                     for answerChoice in multipleSelectionQuestion.answerChoices {
                         rows.append(.multipleSelection(title: answerChoice.text, questionId: question.id, answerChoice: answerChoice))
                     }

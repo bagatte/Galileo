@@ -63,7 +63,7 @@ final class PrescriptionFormViewController: UIViewController {
             responseDictionary?[flow.current.rawValue] = []
         }
         
-        sections = setupSections()
+        setupSections()
         
         tableView.register(QuestionTitleTableViewCell.self)
         tableView.register(FreeTextQuestionTableViewCell.self)
@@ -72,7 +72,7 @@ final class PrescriptionFormViewController: UIViewController {
     
     // MARK: - Private methods
     
-    private func setupSections() -> [Section] {
+    private func setupSections() {
         let formType = flow.current
         let forms = prescriptionInformation.forms.filter{ return $0.type == formType }
         
@@ -84,8 +84,6 @@ final class PrescriptionFormViewController: UIViewController {
         case .medicationSpecific:
             sections = formCreator.createMedicationSpecificFormSections(from: forms)
         }
-        
-        return sections
     }
     
     private func updateResponseDictionary<T: Comparable>(key: String, type: T.Type, id: T, answerDictionary: [String: Any]) {
